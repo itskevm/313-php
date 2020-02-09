@@ -28,4 +28,20 @@
     ?>
 
   </div>
+  <div>
+    <h1>Spartans Roster</h1>
+    
+    <?php
+        $statement = $db->prepare("SELECT first_name FROM player WHERE team_id=4");
+        $statement->execute();
+
+        while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+        {
+          $firstName = $row['first_name'];
+          $lastName = $row['last_name'];
+          $jerseyNumber = $row['jersey_number'];
+          echo "<p><strong>$firstName $lastName ($jerseyNumber)</strong></p>";
+        }
+    ?>
+  </div>
 </body>

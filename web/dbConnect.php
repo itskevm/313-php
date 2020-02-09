@@ -1,11 +1,9 @@
 <?php
 function get_db()
 {
-    echo "entered connection";
     $db = NULL;
     try
     {
-        echo "entered try";
         $dbUrl = getenv('DATABASE_URL');
         $dbOpts = parse_url($dbUrl);
 
