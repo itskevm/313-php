@@ -40,7 +40,7 @@
           $firstName = $row['first_name'];
           $lastName = $row['last_name'];
           $jerseyNumber = $row['jersey_number'];
-          echo "<p><strong>$firstName $lastName ($jerseyNumber)</strong></p>";
+          echo "<p>$firstName $lastName (#$jerseyNumber)</p>";
         }
     ?>
   </div>
