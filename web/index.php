@@ -32,7 +32,7 @@
     <h1>Spartans Roster</h1>
     
     <?php
-        $statement = $db->prepare("SELECT first_name FROM player WHERE team_id=4");
+        $statement = $db->prepare("SELECT first_name, last_name, jersey_number FROM player WHERE team_id=4");
         $statement->execute();
 
         while ($row = $statement->fetch(PDO::FETCH_ASSOC))
