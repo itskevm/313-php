@@ -19,6 +19,9 @@
     display: inline-block;
     }
     .links { margin: 3em; }
+    div.texter {
+    padding: 0.5em;
+    }
     ul {
     font-size: 26px;
     letter-spacing: 2px;
@@ -49,14 +52,14 @@
       <li><a href="directory.html">View all assignments</a></li>
     </ul>
   </div>
-  <h3>About</h3>
-  <div>
-    <p>After all, why dive in so quickly when we can first try to learn about the author?</p><br>
-    <p>
+  <h2>About</h2>
+  <div class="texter">
+    <p>After all, why dive in so quickly when we can first try to learn about the author?</p>
+    <p><i>
       <?php
       date_default_timezone_set("America/New_York");
       echo "Back home, it is currently " . date("h:ia");
-      ?>
+      ?></i>
     </p>
     <p>
     A move to Montreal at 5 years old immersed me into the Quebecois culture
