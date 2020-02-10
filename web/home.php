@@ -12,7 +12,7 @@
   <style>
     body {
     background-image: url("https://tinyurl.com/yyr95t46");
-    background-size: 200%;
+    background-size: 1000%;
     }
     a:link {
     color: blue;
