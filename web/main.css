@@ -1,0 +1,140 @@
+body {
+  background-color: #edeef0;
+  margin: 0;
+}
+
+div.mainbox {
+  /* the main content of the page will be within this div */
+  background-color: white;
+  border-radius: 25px;
+  margin: 5% 1%;
+  padding: 10px;
+  text-align: left;
+}
+
+div.allteams {
+  /* the div that will contain the list of all of the teams */
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+div.oneteam {
+  /* a div to contain the links to a single team's info */
+  padding: 10px 0 10px 0;
+}
+
+div.coaches {
+  color: #4b4c4d;
+}
+
+/* This will only be true when width is less than 601px.
+  It overrides any rules that exist already, but existing rules
+  will stay in effect if not overriden. */
+@media screen and (max-width: 600px) {
+  h1 {
+    font-family: "Tahoma", Geneva, sans-serif;
+    padding: 8px 0 10px;
+    font-size: 6vw;
+  }
+  h3 {
+    font-size: 5vw;
+  }
+
+  div.mainbox
+  {
+    margin: 5% 0%;
+  }
+}
+
+@media screen and (min-width:768px) {
+  div.mainbox {
+    margin: 5% 20%;
+  }
+
+  .mainbox table  {
+    font-size: 17px;
+    width:100%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+}
+
+h1 {
+  /* use for the biggest title on the screen in the mainbox */
+  font-family: "Tahoma", Geneva, sans-serif;
+  margin: 0;
+  padding: 8px 0 10px;
+}
+
+h3 {
+  /* use as a subtitle to the biggest title on the screen */
+  margin: 2px 0 8px;
+}
+
+img.playercrop {
+  max-width: 60px;
+  max-height: 45px;
+  vertical-align: middle;
+}
+
+ul.navbar {
+  width: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: white;
+  -webkit-box-shadow: 0 8px 6px -6px #999;
+  -moz-box-shadow: 0 8px 6px -6px #999;
+  box-shadow: 0 8px 6px -6px #999;
+}
+
+.navbar li {
+  float: left;
+}
+
+.navbar li a {
+  display: block;
+  color: #151617;
+  text-align: center;
+  padding: 8px 14px;
+  text-decoration: none;
+  border-style: solid;
+  border-color: white;
+}
+
+/* Change the link color to redish on hover */
+.navbar li a:hover {
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+  opacity: 1;
+  -webkit-transition: all 3s linear;
+  -moz-transition: all 3s linear;
+  -ms-transition: all 3s linear;
+  -o-transition: all 3s linear;
+  transition: all 3s linear;
+  transition-duration: 0.2s;
+  background-color: #fff0f2;
+  border-bottom-style: solid;
+  border-bottom-color: coral;
+}
+
+.navbar .active {
+  border-style: solid;
+  border-color: white;
+  border-bottom-color: coral;
+}
+
+span.name {
+  color: #0066cc;
+}
+
+span.number {
+  font-size: 70%;
+}
+
+table {
+  border-collapse: collapse;
+  color: #4b4c4d;
+  font-size: 3.5vw;
+  text-align: left;
+  width: 100%;
+}
