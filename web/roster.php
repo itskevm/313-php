@@ -1,7 +1,12 @@
 <?php
+  session_start();
   require "dbConnect.php";
   $db = get_db();
-	
+
+  if (!isset($_SESSION['login_status'])) {
+	$_SESSION['login_status'] = False;
+	}
+
 	$statement = $db->prepare("SELECT team_name, team_id FROM team");
 	$statement->execute();
 
@@ -72,12 +77,33 @@
 
 <body>
 	<script src="null.js"></script>
-	<ul class="navbar">
-		<li><a href="soon.html">Schedule</a></li>
-		<li><a href="soon.html">Stats</a></li>
-		<li><a class="active" href="index.php">Teams</a></li>
-		<li><a href="soon.html">About</a></li>
-	</ul>
+	<div class="firnav">
+		<span class="left">
+			<a href="https://campusrec.byui.edu/">
+			<img src="https://campusrec.byui.edu/Content/Images/byuidaho-logo.png"
+				alt="schoolLogo" id="icon"></a>
+		</span>
+		<span class="right">
+			<a href="/login.php"><img src="https://freesvg.org/img/abstract-user-flat-3.png"
+				alt="login" id="icon"></a>
+		</span>
+		<span class="texto">
+			<?php 
+				if (!$_SESSION['login_status'])
+					echo "<p>Guest</p>";
+				else
+					echo "<p>" . $_SESSION['username'] . "</p>";
+			?>
+		</span>
+	</div>
+	<div class="secnav">
+		<ul class="navbar">
+			<li><a href="soon.html">Schedule</a></li>
+			<li><a href="stats.php">Stats</a></li>
+			<li><a class="active" href="index.php">Teams</a></li>
+			<li><a href="about.php">About</a></li>
+		</ul>
+	</div>
 	<div class="mainbox">
 		<h1><?php echo $team; ?> Roster</h1>
 		<h3>Team Roster</h3>
@@ -144,7 +170,9 @@
 			$newID = $row['player_id'] + 1;
 		?>
 
-		<div>
+		<?php
+			if (isset($_SESSION['login_status']) && $_SESSION['login_status']) {
+		echo '<div>
 			<h1>Modify Roster</h1>
 			<h3>Add a player</h3><hr>
 			<form name="insert" action="/roster.php?team=<?php echo strtolower($team); ?>" method="post">
@@ -162,20 +190,20 @@
 				<label for="height">Height:</label>
 				<select id="height" name="height" required>
 					<option value="" selected disabled>Choose</option>
-					<option value="5 1">5' 1"</option>
-					<option value="5 2">5' 2"</option>
-					<option value="5 3">5' 3"</option>
-					<option value="5 4">5' 4"</option>
-					<option value="5 5">5' 5"</option>
-					<option value="5 6">5' 6"</option>
-					<option value="5 7">5' 7"</option>
-					<option value="5 8">5' 8"</option>
-					<option value="5 9">5' 9"</option>
-					<option value="5 10">5' 10"</option>
-					<option value="5 11">5' 11"</option>
-					<option value="6 0">6' 0"</option>
-					<option value="6 1">6' 1"</option>
-					<option value="6 2">6' 2"</option>
+					<option value="5 1">5\' 1"</option>
+					<option value="5 2">5\' 2"</option>
+					<option value="5 3">5\' 3"</option>
+					<option value="5 4">5\' 4"</option>
+					<option value="5 5">5\' 5"</option>
+					<option value="5 6">5\' 6"</option>
+					<option value="5 7">5\' 7"</option>
+					<option value="5 8">5\' 8"</option>
+					<option value="5 9">5\' 9"</option>
+					<option value="5 10">5\' 10"</option>
+					<option value="5 11">5\' 11"</option>
+					<option value="6 0">6\' 0"</option>
+					<option value="6 1">6\' 1"</option>
+					<option value="6 2">6\' 2"</option>
 				</select><br>
 				<label for="home">Home (optional):</label>
 				<input type="text" id="home" name="home" maxlength="20" size="20" placeholder="optional"><br><br>
@@ -192,9 +220,9 @@
 						$statement->execute();
 						while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 						{
-							$id = $row['player_id'];
-							$firstName = $row['first_name'];
-							$name = $firstName . " " . $row['last_name'];
+							$id = $row["player_id"];
+							$firstName = $row["first_name"];
+							$name = $firstName . " " . $row["last_name"];
 							echo "
 							<option value=$id>$name</option>
 							";
@@ -204,6 +232,11 @@
 				<input type="submit" value="Delete player"><br>
 			</form>
 		</div>
+		';
+		} else {
+			echo "<p><a href='/login.php'>Log in</a> for more features</p>";
+		}
+		?>
 	</div>
 
 </body>

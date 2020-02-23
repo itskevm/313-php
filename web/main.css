@@ -3,12 +3,44 @@ body {
   margin: 0;
 }
 
+.firnav span.right {
+  height: inherit;
+  float: right;
+  overflow: hidden;
+}
+
+span.texto {
+  float: right;
+  margin-right: 0.25em;
+  color: white;
+  display: grid;
+  text-align: center;
+  align-content: center;
+  height: inherit;
+}
+
+.firnav span.left {
+  height: inherit;
+  float: left;
+  overflow: hidden;
+}
+
+span.nada:before {
+  content: "";
+}
+
+#icon {
+  height: 100%;
+  width: auto;
+  overflow: hidden;
+}
+
 div.mainbox {
   /* the main content of the page will be within this div */
   background-color: white;
   border-radius: 25px;
   margin: 5% 1%;
-  padding: 10px;
+  padding: 15px;
   text-align: left;
 }
 
@@ -22,6 +54,57 @@ div.oneteam {
   /* a div to contain the links to a single team's info */
   padding: 10px 0 10px 0;
 }
+
+div.loginform {
+  padding: 2em 10%;
+}
+
+.textboxes {
+  border: 0;
+  border-radius: .2em;
+  height: 2em;
+  margin: .375em 0 1.5em 0;
+  padding: .2em .5em;
+  box-shadow: 0 0 0 2px #e4e4e4;
+  background-color: white;
+  width: 97%;
+}
+
+#submitter {
+  height: 2em;
+  color: white;
+  font-size: 1em;
+  width: 20vw;
+  float: right;
+  border-color: #e4e4e4;
+  border-radius: 1em;
+  background-color: #0076B6;
+  box-shadow: 0 8px 6px -6px #999;
+}
+
+.firnav {
+  background-color: #0076B6;
+  height: 2em;
+  position: relative;
+  width: initial;
+  padding: 5px 10px 5px 10px;
+}
+/*
+.firnav:after {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  content: '';
+  background: inherit;
+  background-color: #343a40;
+  z-index: 5;
+  top: 0;
+  bottom: 5;
+  left: 0;
+  right: 0;
+  transform: skewY(-10deg);
+}
+*/
 
 div.coaches {
   color: #4b4c4d;
@@ -48,7 +131,7 @@ div.coaches {
 
 @media screen and (min-width:768px) {
   div.mainbox {
-    margin: 5% 20%;
+    margin: 2em 20%;
   }
 
   .mainbox table  {
@@ -137,4 +220,13 @@ table {
   font-size: 3.5vw;
   text-align: left;
   width: 100%;
+}
+
+.neutral {
+  margin: 0em;
+}
+
+.warning {
+  color: red;
+  margin: 0em;
 }
