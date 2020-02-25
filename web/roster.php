@@ -175,10 +175,10 @@
 		echo '<div>
 			<h1>Modify Roster</h1>
 			<h3>Add a player</h3><hr>
-			<form name="insert" action="/roster.php?team=<?php echo strtolower($team); ?>" method="post">
+			<form name="insert" action="/roster.php?team=' . strtolower($team) . '" method="post">
 				<input type="hidden" id="form_name" name="form_name" value="insert">
-				<input type="hidden" id="new_player_id" name="new_player_id" value="<?php echo $newID ?>">
-				<input type="hidden" id="current_team_id" name="current_team_id" value="<?php echo $teamID ?>">
+				<input type="hidden" id="new_player_id" name="new_player_id" value="' . $newID . '">
+				<input type="hidden" id="current_team_id" name="current_team_id" value="' . $teamID . '">
 				<label for="first_name">First name:</label>
   				<input type="text" id="first_name" name="first_name" placeholder="First Name" size="30" required><br>
 				<label for="last_name">Last name:</label>
@@ -210,11 +210,11 @@
 				<input type="submit" value="Add player"><br><br>
 			</form>
 			<h3>Delete a player</h3><hr>
-			<form name="delete" action="/roster.php?team=<?php echo strtolower($team); ?>" method="post">
+			<form name="delete" action="/roster.php?team=' . strtolower($team) . '" method="post">
 				<input type="hidden" id="form_name" name="form_name" value="delete">
 				<select id="delete_player_id" name="delete_player_id">
-					<option value="" selected disabled>Choose player</option>
-					<?php
+					<option value="" selected disabled>Choose player</option>';
+
 						$statement = $db->prepare("SELECT player_id, first_name, last_name
 												FROM player WHERE team_id=$teamID");
 						$statement->execute();
@@ -227,8 +227,8 @@
 							<option value=$id>$name</option>
 							";
 						}
-					?>
-				</select><br><br>
+					echo
+				'</select><br><br>
 				<input type="submit" value="Delete player"><br>
 			</form>
 		</div>
